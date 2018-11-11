@@ -66,21 +66,21 @@ def breadth_first(grid, start):
 
     while not toVisit.empty():
         currentPos = toVisit.get()
+
         (y, x) = currentPos
         map_editable[y][x] = 25
+        showPreview()
 
         for neighbor in map_ml.neighbors(currentPos):
 
             if neighbor not in came_from:
                 came_from[neighbor] = currentPos
                 toVisit.put(neighbor)
-
-                # print('Visiting %r' % neighbor)
-                showPreview()
-    
+                
+    print(str(time.time() - startTime))
     return came_from
 
-breadth_first(map_ml, (136, 8))
+breadth_first(map_ml, (42, 59))
 
 
 
